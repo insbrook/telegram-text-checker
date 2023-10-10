@@ -58,7 +58,7 @@ But we'll get around this with CSS:
 }
 ```
 
-### <a name="i18n"></a>Мультиязычность
+### <a name="i18n"></a>Internationalization or i18n
 
 We should also talk about internationalization (i18n). As practice shows, there are few developers
 in their lives they are faced with the need to develop and support applications in several languages.
