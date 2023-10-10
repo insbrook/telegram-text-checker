@@ -34,7 +34,7 @@ class PollTest extends AppTestCase
         $_ENV['POLLING_ONCE'] = true;
         $_ENV['POLLING_SILENT'] = true;
         $result = $this->post('/poll');
-        $this->assertEquals('', $result);
+        $this->assertStringStartsWith('Polling succeeded at ', $result);
 
         $requests = $this->container->get(LoggerInterface::class)->getLogs();
 
@@ -138,7 +138,7 @@ class PollTest extends AppTestCase
         $_ENV['POLLING_ONCE'] = true;
         $_ENV['POLLING_SILENT'] = true;
         $result = $this->post('/poll');
-        $this->assertEquals('', $result);
+        $this->assertStringStartsWith('Polling succeeded at ', $result);
 
         $requests = $this->container->get(LoggerInterface::class)->getLogs();
 
@@ -213,7 +213,7 @@ class PollTest extends AppTestCase
         $_ENV['POLLING_SILENT'] = true;
 
         $result = $this->post('/poll');
-        $this->assertEquals('', $result);
+        $this->assertStringStartsWith('Polling succeeded at ', $result);
 
         $requests = $this->container->get(LoggerInterface::class)->getLogs();
 

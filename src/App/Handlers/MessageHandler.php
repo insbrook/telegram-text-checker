@@ -21,8 +21,30 @@ class MessageHandler implements UpdateHandlerInterface
         $lang = $updateInfo['message']['from']['language_code'] ?? Translator::DEFAULT_LANG;
         $this->translator->setLang($lang);
 
+        $text = $updateInfo['message']['text'] ?? '';
+        if (str_starts_with($text, '/start')) {
+            $telegramClient->sendMessage(
+                $updateInfo['message']['chat']['id'],
+                $this->translator->text('welcome')
+            );
+            return true;
+        }
+        // On sticker send emoji
+        if (!empty($updateInfo['message']['sticker'])) {
+            $emojis = ['👍', '☺', '️😱', '😁', '😳', '🙃'];
+            if (str_contains($updateInfo['message']['sticker']['set_name'] ?? '', 'cat')) {
+                $emojis = [ '😸', '😻', '😼', '😽', '😺'];
+            }
+            shuffle($emojis);
+            $telegramClient->sendMessage(
+                $updateInfo['message']['chat']['id'],
+                $emojis[0]
+            );
+            return true;
+        }
+
         try {
-            $info = $this->textCheckingProvider->getTextWithErrors($updateInfo['message']['text'] ?? '');
+            $info = $this->textCheckingProvider->getTextWithErrors($text);
         } catch (UnsupportedLanguageException $ex) {
             $info = [
                 'text' => $this->translator->text($ex->getMessage())

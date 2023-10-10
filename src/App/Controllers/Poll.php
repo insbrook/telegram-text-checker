@@ -74,7 +74,7 @@ class Poll extends Status implements ControllerInterface, LoggerAwareInterface
         }
 
         // Empty response
-        return new HtmlResponse();
+        return (new HtmlResponse())->withData("Polling succeeded at " . date(\DATE_ATOM) . "\n");
     }
 
     protected function printInfo(string $text)

@@ -47,10 +47,10 @@ body {
 
 .editor-highlight {
     cursor: pointer;
-    text-decoration: underline;
-    text-decoration-color: red;
-    text-decoration-style: solid;
-    text-decoration-thickness: 2px;
+    text-decoration: underline !important;
+    text-decoration-color: red !important;;
+    text-decoration-style: solid !important;;
+    text-decoration-thickness: 2px !important;;
     background: #f2dcdc;
     animation-duration: 1s;
     animation-name: animationPrint;
