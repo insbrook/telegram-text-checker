@@ -10,6 +10,7 @@ separate components for development purpoess or use the entire project as a fram
 To provide such flexibility, no frameworks were used, and the frontend is as cross-browser compatible as possible.
 
 Available on Telegram: [https://t.me/TextGearsBot](https://t.me/TextGearsBot)
+
 As a website: [https://text-correction.com](https://text-correction.com)
 
 What can this app do?
